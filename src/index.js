@@ -11,7 +11,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { setContext } from 'apollo-link-context'
 import { AUTH_TOKEN } from './constants'
 import { split } from 'apollo-link'
-import { WebsocketLink, WebSocketLink } from 'apollo-link-ws'
+import { WebSocketLink } from 'apollo-link-ws'
 import { getMainDefinition } from 'apollo-utilities'
 
 const authLink = setContext((_, {headers}) =>{
