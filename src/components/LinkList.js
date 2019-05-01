@@ -30,9 +30,11 @@ class LinkList extends Component{
     render(){
         return (
             <Query query={FEED_QUERY}>
-                {({loading, error, data}) => {
+                {({loading, error, data, subscribeToMore}) => {
                         if (loading) return <div>Fetching</div>
                         if (error) return <div>Error</div>
+
+                        this._subscribeToNewLinks(subscribeToMore)
 
                         const linksToRender = data.feed.links
                         return (
@@ -60,6 +62,10 @@ class LinkList extends Component{
         voteLink.votes = createVote.link.votes
 
         store.writeQuery({query: FEED_QUERY, data})
+    }
+
+    _subscribeToNewLinks = async ()=>{
+
     }
 }
 
